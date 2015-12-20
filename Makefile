@@ -23,6 +23,7 @@ SRC =	main.c \
 		list.c \
 		interpreter.c \
 		game.c \
+		rules.c \
 
 OBJS = $(SCRFILES:.c=.o)
 CC = clang

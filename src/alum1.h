@@ -13,6 +13,8 @@
 #ifndef ALUM1_H
 # define ALUM1_H
 
+# define CPU 0
+# define PLAYER 1
 # include "../libft/libft.h"
 # include <fcntl.h>
 
@@ -35,6 +37,8 @@ void add_link(int match);
 void disp_list(void);
 void disp_match(int match);
 void game();
+int		remaining_matches();
+int	pick_up(int pick);
 
 
 #endif

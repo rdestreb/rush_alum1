@@ -54,3 +54,14 @@ void disp_list(void)
 		lst = lst->next;
 	}
 }
+
+int		remaining_matches()
+{
+	t_list	*lst;
+
+	lst = singleton();
+	lst = lst->next;
+	while (lst->next)
+		lst = lst->next;
+	return (lst->nb_match);
+}
