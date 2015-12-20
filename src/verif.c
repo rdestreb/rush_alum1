@@ -20,8 +20,5 @@ int	verif_board(char *line)
 	if (nb_match > 0 && nb_match < 10001)
 		return (nb_match);
 	else
-	{
-		print_error();
-		return (0);
-	}
+		return (print_error());
 }

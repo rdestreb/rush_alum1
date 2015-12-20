@@ -16,6 +16,7 @@ int	read_board(int fd)
 {
 	char	*line;
 	int		nb_match;
+	t_list	*lst;
 
 	while ((fd == 0 && get_next_line(fd, &line) > 0 && ft_strcmp(line, ""))
 			|| (fd > 0 && get_next_line(fd, &line) > 0))
@@ -26,6 +27,9 @@ int	read_board(int fd)
 			return (0);
 		free (line);
 	}
+	lst = singleton();
+	if (line && !lst->next)
+		return (print_error());
 	if (fd)
 		close (fd);
 	disp_list();
