@@ -49,7 +49,7 @@ void disp_list(void)
 	lst = lst->next;
 	while (lst)
 	{
-		ft_putnbr(lst->nb_match);
+		disp_match(lst->nb_match);
 		ft_putendl("");
 		lst = lst->next;
 	}

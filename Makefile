@@ -21,6 +21,7 @@ SRC =	main.c \
 		read_board.c \
 		verif.c \
 		list.c \
+		interpreter.c \
 
 OBJS = $(SCRFILES:.c=.o)
 CC = clang

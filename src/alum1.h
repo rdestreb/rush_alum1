@@ -33,5 +33,6 @@ t_list	*singleton(void);
 t_list	*newnode(int match);
 void add_link(int match);
 void disp_list(void);
+void disp_match(int match);
 
 #endif
