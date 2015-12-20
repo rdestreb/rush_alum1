@@ -20,6 +20,7 @@ SRC =	main.c \
 		print_error.c \
 		read_board.c \
 		verif.c \
+		list.c \
 
 OBJS = $(SCRFILES:.c=.o)
 CC = clang

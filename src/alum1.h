@@ -16,8 +16,22 @@
 # include "../libft/libft.h"
 # include <fcntl.h>
 
+typedef struct s_list	t_list;
+
+struct s_list
+{
+	int		nb_match;
+	t_list	*next;
+};
+
 int	read_board(int fd);
 int print_error(void);
 int	verif_board(char *line);
+void disp_board(int *board);
+int	*construct_board(int *board, unsigned int match);
+t_list	*singleton(void);
+t_list	*newnode(int match);
+void add_link(int match);
+void disp_list(void);
 
 #endif

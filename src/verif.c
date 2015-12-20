@@ -14,11 +14,11 @@
 
 int	verif_board(char *line)
 {
-	if (ft_atoi(line) > 0 && ft_atoi(line) < 10001)
-	{
-	//	ft_putendl("OK");
-		return (1);
-	}
+	int	nb_match;
+
+	nb_match = ft_atoi(line);
+	if (nb_match > 0 && nb_match < 10001)
+		return (nb_match);
 	else
 	{
 		print_error();
