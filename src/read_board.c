@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "alum1.h"
-#include <stdio.h>
+
 int	read_board(int fd)
 {
 	char	*line;
@@ -26,7 +26,9 @@ int	read_board(int fd)
 			return (0);
 		free (line);
 	}
-	close (fd);
+	if (fd)
+		close (fd);
 	disp_list();
+	game();
 	return (0);
 }
