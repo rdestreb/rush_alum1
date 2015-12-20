@@ -47,7 +47,8 @@ void disp_list(void)
 
 	lst = singleton();
 	lst = lst->next;
-	while (lst)
+	ft_putendl("");
+	while (lst && lst->nb_match)
 	{
 		disp_match(lst->nb_match);
 		ft_putendl("");
@@ -61,7 +62,7 @@ int		remaining_matches()
 
 	lst = singleton();
 	lst = lst->next;
-	while (lst->next)
+	while (lst->next && lst->next->nb_match)
 		lst = lst->next;
 	return (lst->nb_match);
 }

@@ -20,7 +20,7 @@ static int	cpu_turn()
 
 	nb_match = remaining_matches();
 	if (get_next_line(0, &line) == -1 || !ft_strcmp(line, "stop"))
-		return (-1);
+		return (ERR);
 	free(line);
 	disp_list();
 	return (PLAYER);
@@ -34,14 +34,14 @@ static int	player_turn()
 
 	nb_match = remaining_matches();
 	if (get_next_line(0, &line) == -1 || !ft_strcmp(line, "stop"))
-		return (-1);
+		return (ERR);
 	pick = ft_atoi(line);
 	free (line);
 	if ((pick <= nb_match) && (pick == 1 || pick == 2 || pick == 3) )
 		pick_up(pick);
 	else
 	{
-		ft_putendl("wrong entry, please retry !");
+		ft_putendl("\n\033[2;31mWrong entry, please retry !\033[00m");
 		return (PLAYER);
 	}
 	return (CPU);
@@ -54,41 +54,41 @@ static int	game_turn(int turn)
 	lst = singleton();
 	while (lst->next->nb_match != 0)
 	{
-		if (turn == -1)
-			return (-1);
+		if (turn == ERR)
+			return (ERR);
 		else if (turn == CPU)
 		{
-			ft_putendl("CPU playing");
+			ft_putendl("\nCPU playing");
 			turn = cpu_turn();
 		}
 		else if (turn == PLAYER)
 		{
-			ft_putendl("Pick 1, 2 or 3 match(es) :");
+			ft_putendl("\nPick 1, 2 or 3 match(es) :");
 			turn = player_turn();
 		}
 	}
-	return (1);
+	return (turn);
 }
 
 static int	start_game(char *line)
 {
 
 	if (!ft_strcmp(line, "stop"))
-		return (-1);
+		return (ERR);
 	else if (!ft_strcmp(line, "1"))
 	{
-		ft_putendl("You play first !");
+		ft_putendl("\n\033[36;1mYou play first !\033[00m\n");
 		return (game_turn(PLAYER));
 	}
 	else if (!ft_strcmp(line, "2"))
 	{
-		ft_putendl("CPU plays first !");
+		ft_putendl("\n\033[2;33mCPU plays first !\033[00m\n");
 		return (game_turn(CPU));
 	}
 	else
 	{
-		ft_putendl("wrong entry, please retry !");
-		return (0);
+		ft_putendl("\n\033[2;31mWrong entry, please retry !\033[00m");
+		return (IND);
 	}
 }
 
@@ -97,16 +97,20 @@ void		game()
 	int		status;
 	char	*line;
 
-	status = 0;
+	status = IND;
 	ft_putendl("\nChoose first player (1 : you ; 2 : CPU) :");
-	while (status != -1 && status != 1)
+	while (status == IND)
 	{
-		if (get_next_line(0, &line) == -1)
-			status = -1;
+		if (get_next_line(0, &line) == ERR)
+			status = ERR;
 		else
 			status = start_game(line);
 		free(line);
 	}
-	if (status == -1)
-		return(ft_putendl("exit !"));
+	if (status == ERR)
+		return(ft_putendl("Exit !"));
+	else if (status == CPU)
+		return (ft_putendl("\033[1;31mYou lose ! =(\033[00m\n"));
+	else if (status == PLAYER)
+		return (ft_putendl("\033[2;32mYou win ! =D\033[00m\n"));
 }

@@ -18,7 +18,7 @@ int	pick_up(int pick)
 
 	lst = singleton();
 	lst = lst->next;
-	while (lst->next && lst->nb_match)
+	while (lst->next && lst->next->nb_match)
 		lst = lst->next;
 	lst->nb_match -= pick;
 	disp_list();

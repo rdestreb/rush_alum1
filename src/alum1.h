@@ -13,8 +13,10 @@
 #ifndef ALUM1_H
 # define ALUM1_H
 
-# define CPU 0
+# define ERR -1
+# define IND 0
 # define PLAYER 1
+# define CPU 2
 # include "../libft/libft.h"
 # include <fcntl.h>
 
