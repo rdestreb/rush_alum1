@@ -17,6 +17,7 @@
 # include <fcntl.h>
 
 int	read_board(int fd);
-
+int print_error(void);
+int	verif_board(char *line);
 
 #endif

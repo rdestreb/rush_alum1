@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_error.c                                      :+:      :+:    :+:   */
+/*   verif.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdestreb <rdestreb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/20 09:13:50 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/12/20 09:14:17 by rdestreb         ###   ########.fr       */
+/*   Created: 2015/12/20 11:57:12 by rdestreb          #+#    #+#             */
+/*   Updated: 2015/12/20 11:57:25 by rdestreb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alum1.h"
 
-int print_error(void)
+int	verif_board(char *line)
 {
-	ft_putendl_fd("ERROR", 2);
-	return (0);
+	if (ft_atoi(line) > 0 && ft_atoi(line) < 10001)
+	{
+	//	ft_putendl("OK");
+		return (1);
+	}
+	else
+	{
+		print_error();
+		return (0);
+	}
 }

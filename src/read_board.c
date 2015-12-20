@@ -16,9 +16,13 @@ int	read_board(int fd)
 {
 	char	*line;
 
-	while (get_next_line(fd, &line) > 0 && ft_strcmp(line, ""))
+	while ((fd == 0 && get_next_line(fd, &line) > 0 && ft_strcmp(line, ""))
+			|| (fd > 0 && get_next_line(fd, &line) > 0))
 	{
-		ft_putendl(line);
+		if (verif_board(line))
+			ft_putendl(line);
+		else
+			return (0);
 		free (line);
 	}
 	close (fd);

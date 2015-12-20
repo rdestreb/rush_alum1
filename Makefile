@@ -18,7 +18,8 @@ HEADFILES = $(addprefix $(HEADDIR)/, $(HEAD))
 SCRFILES = $(addprefix $(SRCDIR)/, $(SRC))
 SRC =	main.c \
 		print_error.c \
-		read_board.c
+		read_board.c \
+		verif.c \
 
 OBJS = $(SCRFILES:.c=.o)
 CC = clang
