@@ -21,9 +21,9 @@ SRC =	main.c \
 		read_board.c \
 		verif.c \
 		list.c \
-		interpreter.c \
+		disp_match.c \
 		game.c \
-		rules.c \
+		pick_up.c \
 
 OBJS = $(SCRFILES:.c=.o)
 CC = clang
