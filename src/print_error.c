@@ -6,13 +6,13 @@
 /*   By: rdestreb <rdestreb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 09:13:50 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/12/20 09:14:17 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/12/21 14:53:10 by tguillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alum1.h"
 
-int print_error(void)
+int	print_error(void)
 {
 	ft_putendl_fd("ERROR", 2);
 	return (0);

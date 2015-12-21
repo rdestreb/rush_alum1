@@ -6,7 +6,7 @@
 /*   By: rdestreb <rdestreb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 09:53:44 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/12/20 09:53:53 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/12/21 14:53:38 by tguillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ int	read_board(int fd)
 			add_link(nb_match);
 		else
 			return (0);
-		free (line);
+		free(line);
 	}
 	lst = singleton();
 	if (line && !lst->next)
 		return (print_error());
 	if (fd)
-		close (fd);
+		close(fd);
 	disp_list(0);
 	game();
 	return (0);

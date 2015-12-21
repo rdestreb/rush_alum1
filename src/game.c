@@ -6,13 +6,13 @@
 /*   By: rdestreb <rdestreb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 16:40:19 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/12/20 16:40:30 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/12/21 14:57:15 by tguillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alum1.h"
 
-static int	cpu_turn(void)
+static int		cpu_turn(void)
 {
 	int		nb_match;
 	int		answer;
@@ -31,9 +31,9 @@ static int	cpu_turn(void)
 	return (PLAYER);
 }
 
-static int	player_turn(void)
+static int		player_turn(void)
 {
-	int	nb_match;
+	int		nb_match;
 	char	*line;
 	int		pick;
 
@@ -41,8 +41,8 @@ static int	player_turn(void)
 	if (get_next_line(0, &line) == -1 || !ft_strcmp(line, "stop"))
 		return (ERR);
 	pick = ft_atoi(line);
-	free (line);
-	if ((pick <= nb_match) && (pick == 1 || pick == 2 || pick == 3) )
+	free(line);
+	if ((pick <= nb_match) && (pick == 1 || pick == 2 || pick == 3))
 		pick_up(pick);
 	else
 	{
@@ -52,7 +52,7 @@ static int	player_turn(void)
 	return (CPU);
 }
 
-static int	game_turn(int turn)
+static int		game_turn(int turn)
 {
 	t_list	*lst;
 
@@ -74,9 +74,8 @@ static int	game_turn(int turn)
 	return (turn);
 }
 
-static int	start_game(char *line)
+static int		start_game(char *line)
 {
-
 	if (!ft_strcmp(line, "stop"))
 		return (ERR);
 	else if (!ft_strcmp(line, "1"))
@@ -96,7 +95,7 @@ static int	start_game(char *line)
 	}
 }
 
-void		game()
+void			game(void)
 {
 	int		status;
 	char	*line;
@@ -113,7 +112,7 @@ void		game()
 		free(line);
 	}
 	if (status == ERR)
-		return(ft_putendl("Exit !"));
+		return (ft_putendl("Exit !"));
 	else if (status == CPU)
 		return (ft_putendl("\n\033[1;31mYou lose ! =(\033[00m\n"));
 	else if (status == PLAYER)

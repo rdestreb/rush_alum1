@@ -6,13 +6,13 @@
 /*   By: rdestreb <rdestreb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 15:12:04 by rdestreb          #+#    #+#             */
-/*   Updated: 2015/12/20 15:12:15 by rdestreb         ###   ########.fr       */
+/*   Updated: 2015/12/21 14:54:50 by tguillot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alum1.h"
 
-t_list	*singleton(void)
+t_list		*singleton(void)
 {
 	static t_list	*lst = NULL;
 
@@ -21,7 +21,7 @@ t_list	*singleton(void)
 	return (lst);
 }
 
-t_list	*newnode(int match)
+t_list		*newnode(int match)
 {
 	t_list	*new;
 
@@ -32,7 +32,7 @@ t_list	*newnode(int match)
 	return (new);
 }
 
-void add_link(int match)
+void		add_link(int match)
 {
 	t_list	*lst;
 
@@ -42,7 +42,7 @@ void add_link(int match)
 	lst->next = newnode(match);
 }
 
-void disp_list(int picked)
+void		disp_list(int picked)
 {
 	t_list	*lst;
 
@@ -67,7 +67,7 @@ void disp_list(int picked)
 	}
 }
 
-int		remaining_matches()
+int			remaining_matches(void)
 {
 	t_list	*lst;
 
