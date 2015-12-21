@@ -53,7 +53,8 @@ void disp_list(int picked)
 	{
 		if (lst->next && lst->next->nb_match)
 			disp_match(lst->nb_match, 0);
-		else if (lst->next && !lst->next->nb_match && lst->nb_match == lst->init && picked)
+		else if (lst->next && !lst->next->nb_match
+				&& lst->nb_match == lst->init && picked)
 		{
 			disp_match(lst->nb_match, 0);
 			ft_putendl("");

@@ -22,5 +22,8 @@ int	pick_up(int pick)
 		lst = lst->next;
 	lst->nb_match -= pick;
 	disp_list(pick);
+	ft_putendl("\033[4;35m");
+	ft_putnbr(lst->nb_match);
+	ft_putendl(" match(es) remaining on last row\033[00m");
 	return (CPU);
 }

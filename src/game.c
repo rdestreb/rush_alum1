@@ -12,24 +12,26 @@
 
 #include "alum1.h"
 
-static int	cpu_turn()
+static int	cpu_turn(void)
 {
 	int		nb_match;
+	int		answer;
 
 	nb_match = remaining_matches();
-//	if (get_next_line(0, &line) == -1 || !ft_strcmp(line, "stop"))
-	//	return (ERR);
-//	free(line);
 	if (nb_match % 4 == 0)
-		pick_up(3);
+		answer = 3;
 	else if (nb_match % 4 == 3)
-		pick_up(2);
+		answer = 2;
 	else
-		pick_up(1);
+		answer = 1;
+	ft_putstr("\n\033[1;33mCPU picked \033[1;31m");
+	ft_putnbr(answer);
+	ft_putendl("\033[1;33m match(es)\033[00m");
+	pick_up(answer);
 	return (PLAYER);
 }
 
-static int	player_turn()
+static int	player_turn(void)
 {
 	int	nb_match;
 	char	*line;
@@ -61,12 +63,11 @@ static int	game_turn(int turn)
 			return (ERR);
 		else if (turn == CPU)
 		{
-			ft_putendl("\nCPU playing");
 			turn = cpu_turn();
 		}
 		else if (turn == PLAYER)
 		{
-			ft_putendl("\nPick 1, 2 or 3 match(es) :");
+			ft_putendl("\n\033[1;36mPick 1, 2 or 3 match(es) :\033[00m");
 			turn = player_turn();
 		}
 	}
@@ -80,12 +81,12 @@ static int	start_game(char *line)
 		return (ERR);
 	else if (!ft_strcmp(line, "1"))
 	{
-		ft_putendl("\n\033[36;1mYou play first !\033[00m\n");
+		ft_putendl("\n\033[1;4;36mYou play first !\033[00m\n");
 		return (game_turn(PLAYER));
 	}
 	else if (!ft_strcmp(line, "2"))
 	{
-		ft_putendl("\n\033[2;33mCPU plays first !\033[00m\n");
+		ft_putendl("\n\033[1;4;33mCPU plays first !\033[00m\n");
 		return (game_turn(CPU));
 	}
 	else
@@ -101,7 +102,8 @@ void		game()
 	char	*line;
 
 	status = IND;
-	ft_putendl("\nChoose first player (1 : you ; 2 : CPU) :");
+	ft_putstr("\n\033[1;37mChoose first player (\033[2;36m1 : you\033[1;37m");
+	ft_putendl(" ; \033[2;33m2 : CPU\033[1;37m) :\033[00m");
 	while (status == IND)
 	{
 		if (get_next_line(0, &line) == ERR)
@@ -113,7 +115,7 @@ void		game()
 	if (status == ERR)
 		return(ft_putendl("Exit !"));
 	else if (status == CPU)
-		return (ft_putendl("\033[1;31mYou lose ! =(\033[00m\n"));
+		return (ft_putendl("\n\033[1;31mYou lose ! =(\033[00m\n"));
 	else if (status == PLAYER)
-		return (ft_putendl("\033[2;32mYou win ! =D\033[00m\n"));
+		return (ft_putendl("\n\033[2;32mYou win ! =D\033[00m\n"));
 }
