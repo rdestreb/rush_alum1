@@ -114,7 +114,7 @@ void			game(void)
 	if (status == ERR)
 		return (ft_putendl("Exit !"));
 	else if (status == CPU)
-		return (ft_putendl("\n\033[1;31mYou lose ! =(\033[00m\n"));
+		return (ft_putendl("\n\033[1;31mCPU wins ! =(\033[00m\n"));
 	else if (status == PLAYER)
 		return (ft_putendl("\n\033[2;32mYou win ! =D\033[00m\n"));
 }

@@ -20,7 +20,10 @@ SRC =	main.c \
 		print_error.c \
 		read_board.c \
 		verif.c \
-		list.c \
+		singleton.c \
+		add_link.c \
+		remaining_matches.c \
+		disp_list.c \
 		disp_match.c \
 		game.c \
 		pick_up.c \
