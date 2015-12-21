@@ -25,22 +25,23 @@ typedef struct s_list	t_list;
 struct s_list
 {
 	int		nb_match;
+	int		init;
 	t_list	*next;
 };
 
-int	read_board(int fd);
-int print_error(void);
-int	verif_board(char *line);
-void disp_board(int *board);
-int	*construct_board(int *board, unsigned int match);
+int		read_board(int fd);
+int 	print_error(void);
+int		verif_board(char *line);
+void	disp_board(int *board);
+int		*construct_board(int *board, unsigned int match);
 t_list	*singleton(void);
 t_list	*newnode(int match);
-void add_link(int match);
-void disp_list(void);
-void disp_match(int match);
-void game();
-int		remaining_matches();
-int	pick_up(int pick);
+void	add_link(int match);
+void	disp_list(int picked);
+void	disp_match(int match, int picked);
+void	game(void);
+int		remaining_matches(void);
+int		pick_up(int pick);
 
 
 #endif

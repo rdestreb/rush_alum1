@@ -15,14 +15,17 @@
 static int	cpu_turn()
 {
 	int		nb_match;
-	char	*line;
-//	int		pick;
 
 	nb_match = remaining_matches();
-	if (get_next_line(0, &line) == -1 || !ft_strcmp(line, "stop"))
-		return (ERR);
-	free(line);
-	disp_list();
+//	if (get_next_line(0, &line) == -1 || !ft_strcmp(line, "stop"))
+	//	return (ERR);
+//	free(line);
+	if (nb_match % 4 == 0)
+		pick_up(3);
+	else if (nb_match % 4 == 3)
+		pick_up(2);
+	else
+		pick_up(1);
 	return (PLAYER);
 }
 

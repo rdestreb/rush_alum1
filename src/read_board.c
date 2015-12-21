@@ -32,7 +32,7 @@ int	read_board(int fd)
 		return (print_error());
 	if (fd)
 		close (fd);
-	disp_list();
+	disp_list(0);
 	game();
 	return (0);
 }

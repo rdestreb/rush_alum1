@@ -21,6 +21,6 @@ int	pick_up(int pick)
 	while (lst->next && lst->next->nb_match)
 		lst = lst->next;
 	lst->nb_match -= pick;
-	disp_list();
+	disp_list(pick);
 	return (CPU);
 }

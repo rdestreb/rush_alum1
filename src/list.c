@@ -27,6 +27,7 @@ t_list	*newnode(int match)
 
 	new = (t_list *)ft_memalloc(sizeof(t_list));
 	new->nb_match = match;
+	new->init = match;
 	new->next = NULL;
 	return (new);
 }
@@ -41,7 +42,7 @@ void add_link(int match)
 	lst->next = newnode(match);
 }
 
-void disp_list(void)
+void disp_list(int picked)
 {
 	t_list	*lst;
 
@@ -50,7 +51,16 @@ void disp_list(void)
 	ft_putendl("");
 	while (lst && lst->nb_match)
 	{
-		disp_match(lst->nb_match);
+		if (lst->next && lst->next->nb_match)
+			disp_match(lst->nb_match, 0);
+		else if (lst->next && !lst->next->nb_match && lst->nb_match == lst->init && picked)
+		{
+			disp_match(lst->nb_match, 0);
+			ft_putendl("");
+			disp_match(0, picked);
+		}
+		else
+			disp_match(lst->nb_match, picked);
 		ft_putendl("");
 		lst = lst->next;
 	}
